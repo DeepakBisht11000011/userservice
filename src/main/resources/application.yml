@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: user-service
+# data source setup
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:${PORT:3306}/userdb?characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
