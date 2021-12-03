@@ -21,12 +21,14 @@ public class MyApplicationRunner implements ApplicationRunner {
     private RoleService roleService;
     @Override
     public void run(ApplicationArguments args){
+        LOG.info("Starting seeding of Role Table.");
         Role role = Role.builder().roleName("admin").build();
         Role role1 = Role.builder().roleName("customer").build();
         Role role2 = Role.builder().roleName("student").build();
         Role role3 = Role.builder().roleName("teacher").build();
         List<Role> roles = Arrays.asList(role,role1,role2,role3);
         getRoleService().saveAllRoles(roles);
+        LOG.info("Seeding of Role Table Successfully Done.");
     }
 
     public RoleService getRoleService() {
